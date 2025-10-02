@@ -1,0 +1,38 @@
+[
+  {
+    "ContainingType": "ElevatorApi.Controllers.ElevatorController",
+    "Method": "GetElevators",
+    "RelativePath": "api/Elevator",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ElevatorApi.Models.Elevator, Elevator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ElevatorApi.Controllers.ElevatorController",
+    "Method": "CreateRequest",
+    "RelativePath": "api/Elevator/request",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ElevatorApi.Models.FloorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

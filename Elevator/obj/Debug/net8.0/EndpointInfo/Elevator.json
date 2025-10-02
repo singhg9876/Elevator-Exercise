@@ -1,0 +1,135 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Elevator",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Elevator": {
+      "get": {
+        "tags": [
+          "Elevator"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Elevator"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Elevator"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Elevator"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Elevator/request": {
+      "post": {
+        "tags": [
+          "Elevator"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FloorRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FloorRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FloorRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Direction": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Elevator": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isIdle": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "currentFloor": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "currentDirection": {
+            "$ref": "#/components/schemas/Direction"
+          },
+          "destinations": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FloorRequest": {
+        "type": "object",
+        "properties": {
+          "floor": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "direction": {
+            "$ref": "#/components/schemas/Direction"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
